@@ -6,7 +6,6 @@ import Notifications from './../components/notification';
 import { makeStyles } from '@material-ui/core/styles';
 
 
-
 const useStyles = makeStyles((theme) => ({   
     container: {
       marginTop: '63px'
