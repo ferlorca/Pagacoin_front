@@ -1,13 +1,12 @@
 import { typesElements } from "./../components/formField";
 
-const apiKey = process.env.REACT_APP_GOOGLE_TRANSLATE_API_KEY;
-export const googleTranslate = require("google-translate")(apiKey);
-
 export const VALIDATIONMESSAGE={
-  validationEmail:"validationEmail",
-  validationMoreThanFive:"validationMoreThanFive",
-  validationMustBeEqualTo:"validationMustBeEqualTo",
-  validationRequired:"validationRequired",
+  validationEmail:"It must be a valid email format",
+  validationMoreThanFive:"It must have more than five characters",
+  validationMustBeEqualTo:"It must be equal to password",
+  validationRequired:"Required",
+  validationMoreThan:"Founds required",
+
 }
 
 const validate = (element, formData) => {
@@ -33,6 +32,12 @@ const validate = (element, formData) => {
     err = !valid ? [valid, message] : err
   }
 
+  if (valid && element.validation && element.validation.moreThan) {
+    valid = parseInt(element.value) <= element.validation.moreThan;
+    let message = `${!valid ? VALIDATIONMESSAGE.validationMoreThan : ''}`;
+    err = !valid ? [valid, message] : err
+  }
+
   if (valid && element.validation && element.validation.required) {
     if (element.element === typesElements.SELECT_MULTIPLE || element.element === typesElements.AUTOCOMPLETE_MULTIPLE) {
       valid = element.value.length !== 0;
@@ -47,15 +52,7 @@ const validate = (element, formData) => {
 }
 
 
-export const updateFormData = (element, formData,translations) => {
-  const getValidationMessage=(msj,element)=>{
-    let message = translations[msj];
-    if(VALIDATIONMESSAGE.validationMustBeEqualTo === msj ){
-      message =  message +" "+ formData[element.validation.isEqualTo].label
-    }
-		return message;
-	}
-
+export const updateFormData = (element, formData) => {
   const newFormData = {
     ...formData
   }  
@@ -68,7 +65,7 @@ export const updateFormData = (element, formData,translations) => {
   if (element.blur) {
     let validData = validate(newElement, formData);
     newElement.valid = validData[0];
-    newElement.validationMessage = getValidationMessage(validData[1],newElement);
+    newElement.validationMessage = validData[1];
   }
   newElement.touched = element.blur ?? false;
   newFormData[element.id] = newElement;

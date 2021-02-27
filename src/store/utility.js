@@ -5,6 +5,11 @@ export const updateObject = (oldObject, updatedProperties) => {
     };
 };
 
+export const getTotal = (array,field)=>{
+  return array.map(item=>item[field]).reduce((accumulator, currentValue) => accumulator + currentValue);
+}
+
+
 
 export const addCreatedByToCollection= (getState,collection)=>{
     let name =  getState().user.profile.name;

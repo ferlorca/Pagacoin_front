@@ -55,40 +55,61 @@ function FormField({ formdata, change, inputStyle ,className=null}) {
           </FormControl>
         )
         break; 
+      case (typesElements.INPUT_NUMBER):
+          formTemplate = (
+            <FormControl margin="normal" component="fieldset" fullWidth error={!formdata.valid && formdata.touched}>
+              <TextField
+                label={formdata.label}
+                variant="outlined" 
+                autoFocus={false}
+                type="number"
+                {...formdata.config}
+                inputProps={{
+                  readOnly: formdata.config.disabled,
+                }}
+                name={formdata.config.name}
+                value={formdata.value}              
+                onBlur={(event) => change({ event, id: formdata.config.id, blur: true })}
+                onChange={(event) => change({ event, id: formdata.config.id, blur: false })}
+              />
+              {showError()}
+            </FormControl>
+          )
+          break; 
       case (typesElements.AUTOCOMPLETE):
-        formTemplate = (
-          <FormControl margin="normal" component="fieldset" fullWidth error={!formdata.valid && formdata.touched}>
-            <Autocomplete
-              className = {className ?? ""} 
-              {...formdata.config}
-              options={formdata.childElements}
-              getOptionLabel={(option) => option.name?? ""}
-              getOptionSelected={(option) => option.id === formdata.value.id}
-              value={formdata.value}
-              onChange={(event, value) => change({ value, id: formdata.config.id, blur: true })}
-              renderOption={(option) => (<RenderAutocomplete {...option} />)}
-              renderInput={(params) => (
-                <TextField
-                  {...params}
-                  label={formdata.label}
-                  variant="outlined"
-                  InputProps={{
-                    ...params.InputProps,
-                    endAdornment: (
-                      <React.Fragment>
-                        {formdata.config.disabled ? <CircularProgress color="inherit" size={20} /> : null}
-                        {params.InputProps.endAdornment}
-                      </React.Fragment>
-                    ),
-                  }}
-                />
-              )}
-            />
-            {showError()}
-          </FormControl>
-        )
-        break;
-        case (typesElements.AUTOCOMPLETE_MULTIPLE):
+      formTemplate = (
+        <FormControl margin="normal" component="fieldset" fullWidth error={!formdata.valid && formdata.touched}>
+          <Autocomplete
+            className = {className ?? ""} 
+            {...formdata.config}
+            options={formdata.childElements}
+            getOptionLabel={(option) => option.name?? ""}
+            getOptionSelected={(option) => option.id === formdata.value.id}
+            value={formdata.value}
+            onChange={(event, value) => change({ value, id: formdata.config.id, blur: true })}
+            renderOption={(option) => (<RenderAutocomplete {...option} />)}
+            renderInput={(params) => (
+              <TextField
+                {...params}
+                label={formdata.label}
+                variant="outlined"
+                InputProps={{
+                  ...params.InputProps,
+                  endAdornment: (
+                    <React.Fragment>
+                      {formdata.config.disabled ? <CircularProgress color="inherit" size={20} /> : null}
+                      {params.InputProps.endAdornment}
+                    </React.Fragment>
+                  ),
+                }}
+              />
+            )}
+          />
+          {showError()}
+        </FormControl>
+      )
+      break;
+      case (typesElements.AUTOCOMPLETE_MULTIPLE):
           formTemplate = (
             <FormControl margin="normal" component="fieldset" fullWidth error={!formdata.valid && formdata.touched}>
               <Autocomplete

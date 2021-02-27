@@ -6,10 +6,11 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import { actionRoutes } from "../../routes";
 
+import ErrorIcon from '@material-ui/icons/Error';
 import BottomNavigation from '@material-ui/core/BottomNavigation';
 import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
-import RestoreIcon from '@material-ui/icons/Restore';
-import FavoriteIcon from '@material-ui/icons/Favorite';
+import DashboardIcon from '@material-ui/icons/Dashboard';
+import ListAltIcon from '@material-ui/icons/ListAlt';
 import IconButton from '@material-ui/core/IconButton';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
@@ -70,7 +71,7 @@ function Header() {
 	useEffect(() => {
 		if (routes) {
 			let action = routes.location.pathname.replace("/", "");
-			setValue(action === "" ? "user" : action);
+			setValue(action === "" ? "home" : action);
 		}
 	}, [routes])
 
@@ -99,9 +100,9 @@ function Header() {
 					showLabels
 					className={classes.button}
 				>
-					<BottomNavigationAction key={actionRoutes.user} value={actionRoutes.user} label={"User"} icon={<RestoreIcon />} />
-					<BottomNavigationAction key={actionRoutes.wallet} value={actionRoutes.wallet} label={"Wallet"} icon={<FavoriteIcon />} />,
-
+					<BottomNavigationAction key={actionRoutes.user} value={actionRoutes.home} label={"Users"} icon={<ListAltIcon />} />
+					<BottomNavigationAction key={actionRoutes.wallet} value={actionRoutes.dashboard} label={"Dashboard"} icon={<DashboardIcon />} />,
+					<BottomNavigationAction key={actionRoutes.log} value={actionRoutes.log} label={"Log"} icon={<ErrorIcon />} />
 				</BottomNavigation>
 				<IconButton
 					aria-label={"more"}

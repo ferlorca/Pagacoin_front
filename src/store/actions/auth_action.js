@@ -1,7 +1,7 @@
 import config from "../../config/config";
 import * as actionTypes from '../action_types';
 import { handleError } from "./common_action";
-import { getPokedex, getUser } from "./pokedex_action";
+import { getUser } from "./user_action";
 
 const axios = config.AXIOS;
 
@@ -23,8 +23,6 @@ export async function authSuccess(data) {
             });
 
             dispatch(getUser());
-            dispatch(getPokedex());
-
             
         } catch (err) {
             handleError(err, actionTypes.AUTH_FAIL)

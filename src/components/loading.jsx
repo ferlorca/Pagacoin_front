@@ -1,6 +1,6 @@
 import React from 'react';
 import CircularProgress from '@material-ui/core/CircularProgress';
-import Grid from '../views/userPage/userList/node_modules/@material-ui/core/Grid';
+import Grid from '@material-ui/core/Grid';
 
 function Loading() {
   return (

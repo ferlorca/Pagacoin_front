@@ -10,14 +10,13 @@ function Login() {
 	
 	const loading = useSelector(state => state.auth.loading);
 	const error = useSelector(state => state.auth.error);
-	const translation = useSelector(state => state.translation.translations)
 	const [registerError, setRegisterError] = useState('');
 	const dispatch = useDispatch();
 	const formDataInit = {
 		email: {
 			element: typesElements.INPUT,
 			value: '',
-			label:translation.login.email,
+			label:"Email",
 			validation: {
 				required: true,
 				email: true
@@ -32,7 +31,7 @@ function Login() {
 		password: {
 			element: typesElements.INPUT,
 			value: '',
-			label:translation.login.password,
+			label:"Password",
 			validation: {
 				required: true,
 				password: true
@@ -48,7 +47,7 @@ function Login() {
 		repassword: {
 			element: typesElements.INPUT,
 			value: '',
-			label: translation.login.repassword,
+			label: "Rewrite password",
 			validation: {
 			  required: true,
 			  password: true,
@@ -65,7 +64,7 @@ function Login() {
 		isSignUp: {
 			element: typesElements.SWITCH,
 			value: false,
-			label: translation.login.signupswitch,		
+			label: "Register",		
 			config: {
 			  id: "isSignUp", name: "isSignUp"
 			},
@@ -80,7 +79,7 @@ function Login() {
 
 	
 	const updateForm = (element) => {
-		setFormData(updateFormData(element, formData,translation.login))
+		setFormData(updateFormData(element, formData))
 	}
 	
 
@@ -93,7 +92,7 @@ function Login() {
 		for (let key in formData) {
 			if(key === "isSignUp")
 				break;
-			newFormData = updateFormData({ value: formData[key].value, id: key, blur: true }, newFormData,translation.login);
+			newFormData = updateFormData({ value: formData[key].value, id: key, blur: true }, newFormData);
 			dataToSubmit[key] = formData[key].value;
 			if(!type && key === "repassword")
 				break;

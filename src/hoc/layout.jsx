@@ -8,7 +8,7 @@ import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({   
     container: {
-      marginTop: '63px'
+      marginTop: theme.spacing(7)
     },
   }));
   
@@ -19,7 +19,7 @@ function Layout(props) {
         <Styles>
             <Header />
             <Notifications />
-            <Container className={classes.container}>
+            <Container maxWidth='false' className={classes.container}>
                 {props.children}
             </Container>
         </Styles>
