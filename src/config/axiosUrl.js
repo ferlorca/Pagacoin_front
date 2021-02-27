@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const baseURL = (process.env.NODE_ENV === 'production') ?
-  "https://us-central1-pokedex-79f41.cloudfunctions.net/api"
+  "https://us-central1-pagacoin-70429.cloudfunctions.net/api"
   :
   "http://localhost:3001"
   ;
