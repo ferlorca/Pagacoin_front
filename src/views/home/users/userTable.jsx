@@ -22,7 +22,11 @@ function UserTable({updateUser}) {
                 <TableBody>          
                     {users.length> 0 ?  users.map((row) => (
                         <Row key={row.id} user={row} updateUser={updateUser}/>
-                        )) : "No User are currently in the app :("}      
+                        )) : 
+                        <TableRow>
+                            <TableCell>No User are currently in the app :(</TableCell>
+                        </TableRow>
+                    }      
                 </TableBody>
                 </Table>
             </TableContainer>

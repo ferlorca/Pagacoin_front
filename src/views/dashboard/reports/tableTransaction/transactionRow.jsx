@@ -21,7 +21,7 @@ const Row = ({transaction,isIncoming}) => {
             :
               <ArrowDownward color="error"/>
             }            
-            <Typography className={classes.amount} variant="body" component="div">
+            <Typography className={classes.amount} variant="body1" component="div">
               {transaction.amount} €  
             </Typography>           
           </Grid> 

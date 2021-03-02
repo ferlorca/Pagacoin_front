@@ -19,7 +19,7 @@ function Layout(props) {
         <Styles>
             <Header />
             <Notifications />
-            <Container maxWidth='false' className={classes.container}>
+            <Container maxWidth={false} className={classes.container}>
                 {props.children}
             </Container>
         </Styles>

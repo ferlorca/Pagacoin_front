@@ -6,7 +6,7 @@ export const updateObject = (oldObject, updatedProperties) => {
 };
 
 export const getTotal = (array,field)=>{
-  return array.map(item=>item[field]).reduce((accumulator, currentValue) => accumulator + currentValue);
+  return array.length>0 ? array.map(item=>item[field]).reduce((accumulator, currentValue) => accumulator + currentValue):0;
 }
 
 

@@ -22,11 +22,15 @@ function WalletTable({ updateWallet }) {
                 {wallets.length > 0 ? wallets.map((row) => (
                     <Row key={row.id} wallet={row} updateWallet={updateWallet} />
                 )) :
-                    <Grid container >
-                        <Typography variant="body" component="div">
-                            You dont have wallets! Add a new one
-                        </Typography>
-                    </Grid>  
+                <TableRow>       
+                    <TableCell component="th" scope="row" colSpan={3}>
+                        <Grid container >
+                            <Typography variant="body1" component="div">
+                                You dont have wallets! Add a new one
+                            </Typography>
+                        </Grid>  
+                    </TableCell>
+                </TableRow>                    
                     }
             </TableBody>
         </Table>

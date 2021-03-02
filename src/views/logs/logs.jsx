@@ -40,7 +40,7 @@ function Logs() {
                 {renderLogs()}
             </List>
             :
-            <Typography variant="body" component="div">
+            <Typography variant="body1" component="div">
                 We dont have any log! It's a mystery
             </Typography>}
             </Paper>

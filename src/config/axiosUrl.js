@@ -6,6 +6,8 @@ const baseURL = (process.env.NODE_ENV === 'production') ?
   "http://localhost:3001"
   ;
 
+// const baseURL = "https://us-central1-pagacoin-70429.cloudfunctions.net/api";
+
 const AxiosInstance = (function () {
   var _instance;
   

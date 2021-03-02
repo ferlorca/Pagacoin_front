@@ -8,7 +8,8 @@ import {
   Typography
 } from '@material-ui/core';
 import {useStyles } from "../../../styles/dashboard/reports/totalTransaction"
-import EuroSymbolIcon from '@material-ui/icons/EuroSymbol';
+import ArrowUpwardIcon from '@material-ui/icons/ArrowUpward';
+import ArrowDownwardIcon from '@material-ui/icons/ArrowDownward';
 
 const TotalTransaction = ({isIncoming,total}) => {
   const classes = useStyles();
@@ -40,7 +41,7 @@ const TotalTransaction = ({isIncoming,total}) => {
           </Grid>
           <Grid item>
             <Avatar className={isIncoming ? classes.incomming :classes.outcomming  }>
-              <EuroSymbolIcon />
+              {isIncoming ? <ArrowUpwardIcon />: <ArrowDownwardIcon /> }
             </Avatar>
           </Grid>
         </Grid>

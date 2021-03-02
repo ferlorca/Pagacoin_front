@@ -53,7 +53,7 @@ function Wallet() {
                 <Grid item xs={6}>  
                     <Tooltip title="Return to User List">
                         <IconButton aria-label="delete" color="primary" onClick={()=> routes.history.push(`/${actionRoutes.home}`)}>
-                            <ArrowBackIcon fontSize="medium" />
+                            <ArrowBackIcon  />
                         </IconButton>
                     </Tooltip>                   
                 </Grid>

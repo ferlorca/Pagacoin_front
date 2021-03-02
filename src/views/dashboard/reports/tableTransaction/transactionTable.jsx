@@ -21,11 +21,15 @@ function TransactionTable({ isIncoming , transactions }) {
                 {transactions && transactions.length > 0 ? transactions.map((row) => (
                     <Row key={row.destiny+row.origin} transaction={row} isIncoming={isIncoming} />
                 )) :
-                    <Grid container >
-                        <Typography variant="body" component="div">
-                            You dont have transactions!
-                        </Typography>
-                    </Grid>  
+                <TableRow>
+                    <TableCell colSpan={4}> 
+                        <Grid container>
+                            <Typography variant="body1" component="div">
+                                You dont have transactions!
+                            </Typography>
+                        </Grid> 
+                    </TableCell>
+                </TableRow>                   
                     }
             </TableBody>
         </Table>
