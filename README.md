@@ -1,3 +1,6 @@
+### First Clarifications
+If you want to execute localy the app, you must run `npm install`. Once all the libreries have been installed, you may execute  the next commands:
+
 
 ### `npm start`
 
