@@ -70,7 +70,7 @@ const remove =(state, action)=>{
 
 const handleError = (state, action) => {
     return updateObject( state, {
-        error: action.payload.error,
+        error: action.payload,
         loading: false,
     });
 };

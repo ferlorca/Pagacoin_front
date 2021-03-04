@@ -1,7 +1,7 @@
 import * as actionTypes from '../action_types';
 import { updateObject } from '../utility';
 
-const initialState = {   
+export const initialState = {   
     notifications:[],
     count:0,
     error: null,

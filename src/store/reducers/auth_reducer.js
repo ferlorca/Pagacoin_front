@@ -1,7 +1,7 @@
 import * as actionTypes from '../action_types';
 import { updateObject } from '../utility';
 
-const initialState = {
+export const initialState = {
     token: null,  
     isAuthenticate:null,     
     error: null,
@@ -26,7 +26,7 @@ const authSuccess = (state, action) => {
 
 const authFail = (state, action) => {
     return updateObject( state, {
-        error: action.payload.error,
+        error: action.payload,
         loading: false
     });
 };

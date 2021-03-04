@@ -1,9 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { createStore, applyMiddleware, compose } from "redux";
-import { Provider } from "react-redux";
+import App from "./app";
 import promiseMiddleware from "redux-promise";
-import BrowserRoutes from "./browserRouter";
 import ReduxThunk from "redux-thunk";
 import reportWebVitals from './reportWebVitals';
 //reducers
@@ -14,16 +13,8 @@ const store = createStore(reducers, composeEnhancers(
     applyMiddleware(promiseMiddleware, ReduxThunk)
 ));
 
-const App = () => {
-    return (
-        <Provider store={store}>           
-          <BrowserRoutes/>                 
-        </Provider>
-    )
-}
 
-ReactDOM.render(<App />, document.getElementById('root'));
-
+ReactDOM.render(<App store={store}/>, document.getElementById('root'));
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))

@@ -25,7 +25,7 @@ const reset = (state, action) => {
 const addTransaction = (state, action) => {
     let duplicate = {...state.transactions};
     duplicate.delivered.push(action.payload.transaction);
-    if(action.payload.origin.ownerId === action.payload.destiny.ownerId)
+    if(action.payload.transaction.wallet.ownerId === action.payload.destiny.ownerId)
         duplicate.received.concat(action.payload.transaction);
     return updateObject(state, { 
         transactions: duplicate,  
@@ -44,7 +44,7 @@ const loading = (state, action) => {
 
 const handleError = (state, action) => {
     return updateObject( state, {
-        error: action.payload.error,
+        error: action.payload,
         loading: false,
     });
 };

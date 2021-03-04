@@ -1,12 +1,15 @@
 import axios from 'axios';
 
-const baseURL = (process.env.NODE_ENV === 'production') ?
-  "https://us-central1-pagacoin-70429.cloudfunctions.net/api"
-  :
-  "http://localhost:3001"
-  ;
+/// This is the correct way to do it.
+// const baseURL = (process.env.NODE_ENV === 'production') ?
+//   "https://us-central1-pagacoin-70429.cloudfunctions.net/api"
+//   :
+//   "http://localhost:3001"
+//   ;
 
-// const baseURL = "https://us-central1-pagacoin-70429.cloudfunctions.net/api";
+
+//This is not correct because we must have a develop enviroment, but currently we need to test pointing to production. 
+const baseURL = "https://us-central1-pagacoin-70429.cloudfunctions.net/api";
 
 const AxiosInstance = (function () {
   var _instance;

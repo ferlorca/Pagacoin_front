@@ -42,14 +42,14 @@ export const addTransaction = (transaction) => {
         origin.balance -= transaction.amount;
         let destiny =  getState().wallet.walletsDestiny.find(item=>item.id ===transaction.destiny );
         destiny.balance += transaction.amount;
+        transaction.wallet = origin;
         axios.post(`${route}/add`, transaction)
             .then((response) => {
                 dispatch(updateWallet(origin));
                 dispatch(updateWallet(destiny));
                 dispatch({
                     type: types.TRANSACTION_ADD,
-                    payload: {
-                        origin,
+                    payload: {                       
                         destiny,
                         transaction
                     }
