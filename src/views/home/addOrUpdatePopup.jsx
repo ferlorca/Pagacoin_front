@@ -152,7 +152,7 @@ function AddUserPopup({item,handleClose,open}) {
 				<Button onClick={resetAndClose} color="primary">
 					Cancel
          		 </Button>
-				<Button onClick={(event) => { submitForm(event) }} color="primary">
+				<Button id="settingUser" onClick={(event) => { submitForm(event) }} color="primary">
 					{item ? "Update" : "Add"}
 				</Button>
 			</DialogActions>

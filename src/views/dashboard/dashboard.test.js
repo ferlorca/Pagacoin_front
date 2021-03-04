@@ -61,7 +61,6 @@ test("Dashboard selecting new wallet",async ()  => {
     const buttons = getAllByRole('button');
     fireEvent.click(buttons[1])
 
-    
 
 });
 

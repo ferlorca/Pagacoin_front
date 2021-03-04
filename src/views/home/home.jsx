@@ -45,7 +45,7 @@ function Home() {
                     </Grid>
                     <Grid item xs={12} sm={6}>
                         <Grid container justify="flex-end">
-                            <Button variant="contained" color="primary" onClick={()=>handleAddUser()}>
+                            <Button id="add_new_user" variant="contained" color="primary" onClick={()=>handleAddUser()}>
                                 Add New user
                             </Button>
                         </Grid>
