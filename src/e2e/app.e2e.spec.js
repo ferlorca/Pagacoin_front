@@ -2,6 +2,7 @@ import { Selector } from 'testcafe';
 
 const minimunRemainingTime = 200;
 const mediumRemainingTime = 3000;
+const lotOfRemainingTime = 7000;
 
 fixture `Test app Pagacoin`
     .page("http://localhost:3000/login")
@@ -9,7 +10,7 @@ fixture `Test app Pagacoin`
     .beforeEach(async t => {        
         await t
             .maximizeWindow()
-            .wait(mediumRemainingTime)     
+            .wait(lotOfRemainingTime)     
     })
 
     test('Login in app, generate user and go to wallets', async t => {  
